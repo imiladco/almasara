@@ -1,0 +1,19 @@
+.single_add_to_cart_button {
+    display: none !important;
+}
+
+@media(max-width:767px) {
+    
+    .single_variation_wrap {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }
+    
+    .woocommerce-variation-add-to-cart.variations_button {
+        width: 100% !important;
+    }
+
+    .whatsapp-button {
+        font-size: 12px !important;    
+    }
+}

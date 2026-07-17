@@ -1,0 +1,51 @@
+.PrdSHP span.price {
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+}
+
+.PrdSHP span.ProductPrice-offer {
+    background: #d32f2f;
+    color: #fff;
+    padding: 0 8px;
+    border-radius: 16px;
+}
+
+.PrdSHP .woocommerce-Price-amount.amount bdi {
+    font-size: 14px;
+    color: #3f4064;
+}
+
+
+.PrdSHP .jet-listing-grid__slider-icon {
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #00000018;
+    border-radius: 11px;
+}
+
+.PrdSHP:hover .jet-listing-grid__slider-icon {
+    opacity: 1;
+    display: flex!important;
+        align-items: center;
+    justify-content: center;
+}
+   
+   
+.PrdSHP .jet-listing .slick-track, .jet-listing-dynamic-field__content .slick-track {
+    left:-8px;
+} 
+
+@media (max-width:767px){
+    .PrdSHP .jet-listing .slick-track, .jet-listing-dynamic-field__content .slick-track {
+        left:-2px;
+    }
+    .PrdSHP .slick-active .jet-engine-listing-overlay-wrap [data-elementor-type="jet-listing-items"] section , .PrdSHP .slick-list.draggable {
+       border-top-right-radius:8px!important;
+       border-bottom-right-radius:8px!important;
+    }
+}
+
