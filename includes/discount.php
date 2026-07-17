@@ -89,6 +89,9 @@ function display_discount_info()
         // بررسی هر متغیر برای تخفیف
         foreach ($variations as $variation) {
             $variation_product = wc_get_product($variation['variation_id']);
+            if (!$variation_product) {
+                continue;
+            }
             $regular_price = $variation_product->get_regular_price();
             $sale_price = $variation_product->get_sale_price();
 

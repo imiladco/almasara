@@ -45,7 +45,7 @@ function jetengine_custom_sale_products_query($query_args, $query_id, $query)
         // بررسی واریانت‌ها و افزودن شناسه والد آنها به لیست
         foreach ($product_ids_on_sale as $product_id) {
             $product = wc_get_product($product_id);
-            if ($product->is_type('variation')) {
+            if ($product && $product->is_type('variation')) {
                 $parent_id = wp_get_post_parent_id($product_id);
                 if ($parent_id) {
                     $parent_product_ids[] = $parent_id;

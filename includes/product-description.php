@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -82,10 +82,18 @@ add_shortcode('product_description', 'product_description_shortcode');
 add_shortcode('product_full_attribute', 'product_full_attribute');
 function product_full_attribute($atts)
 {
+    // بررسی وجود ووکامرس
+    if (!function_exists('wc_get_product')) {
+        return '';
+    }
 
+    // بازیابی محصول؛ اگر پست فعلی محصول نباشد خروجی خالی برگردان
     global $post;
     $product_id = isset($post) ? $post->ID : 0;
     $product = wc_get_product($product_id);
+    if (!$product) {
+        return '';
+    }
 
     $attributes = $product->get_attributes();
     ob_start();

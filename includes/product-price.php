@@ -26,7 +26,7 @@ function display_custom_product_price()
                 $prices = [];
                 foreach ($product->get_available_variations() as $variation) {
                     $variation_product = wc_get_product($variation['variation_id']);
-                    if ($variation_product->is_on_sale()) {
+                    if ($variation_product && $variation_product->is_on_sale()) {
                         $prices[] = [
                             'regular' => $variation_product->get_regular_price(),
                             'sale' => $variation_product->get_sale_price()
