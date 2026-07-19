@@ -57,7 +57,7 @@
                                 <span class="flex flex-row gap-8 items-center text-body-2">
                                     <img src="/wp-content/themes/almasara/assets/img/menu/profile/cart-count.svg"
                                         alt="cart-count">
-                                    0 کالا
+                                    <span class="amfc-count">0</span> کالا
                                 </span>
                                 <a href="/cart/" class="font-normal flex flex-row items-center py-05 px-1 rounded-md"
                                     style="color: #0077db;">

@@ -37,8 +37,9 @@
                 </a>
             </li>
             <li class="<?php echo (is_page(9)) ? 'active' : ''; ?>">
-                <a href="/cart" class="flex flex-col items-center justify-between font-normal">
+                <a href="/cart" class="flex flex-col items-center justify-between font-normal" style="position: relative;">
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/menu/mobile/cart.svg" alt="profile" id="has-sub-menu-profile" class="cursor-pointer">
+                    <span class="amfc-count amfc-badge">0</span>
                     سبد خرید
                 </a>
             </li>

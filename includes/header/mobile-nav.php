@@ -51,8 +51,9 @@ function custom_footer_nav()
             <span class="nav-text<?php echo $shop_active ? '' : ' hidden'; ?>">فروشگاه</span>
         </a>
         <?php if ($user_logged_in): ?>
-            <a href="<?php echo esc_url($cart_link); ?>" class="cart-page-nav<?php echo $cart_active ? ' active' : ''; ?>">
+            <a href="<?php echo esc_url($cart_link); ?>" class="cart-page-nav<?php echo $cart_active ? ' active' : ''; ?>" style="position: relative;">
                 <img src="<?php echo esc_url($cart_active ? $cart_img_active : $cart_img); ?>" alt="Cart">
+                <span class="amfc-count amfc-badge">0</span>
                 <span class="nav-text<?php echo $cart_active ? '' : ' hidden'; ?>">سبد خرید</span>
             </a>
         <?php endif; ?>
