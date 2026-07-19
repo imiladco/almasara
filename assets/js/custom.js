@@ -44,17 +44,10 @@ if (typeof jQuery === 'undefined') {
                 if (submenu) submenu.classList.remove('active');
             };
 
-            // === ماژول غیرفعال کردن دکمه‌های سبد خرید ===
-            function initCartButtons() {
-                if (!window.isVerified) {
-                    document.querySelectorAll('.single_add_to_cart_button, .add_to_cart_button').forEach(button => {
-                        button.addEventListener('click', function (e) {
-                            e.preventDefault();
-                            window.location.href = '/verify/';
-                        });
-                    });
-                }
-            }
+            // === ماژول دکمه‌های سبد خرید ===
+            // ریدایرکت تأیید هویت روی افزودن به سبد حذف شد؛ افزودن به سبد را
+            // افزونه «سبد سریع الماسارا» به‌صورت ایجکسی و بدون ترک صفحه انجام می‌دهد.
+            function initCartButtons() {}
 
             // === ماژول جستجو ===
             function initSearch() {
