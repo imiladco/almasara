@@ -28,9 +28,14 @@ function almasara_mini_cart_fragments( $fragments ) {
         return $fragments;
     }
 
-    $fragments['#sub-menu-fragment .cart-header'] = almasara_cart_fragment_header();
-    $fragments['#sub-menu-fragment .cart-items']  = almasara_cart_fragment_items();
-    $fragments['#sub-menu-fragment .cart-footer'] = almasara_cart_fragment_footer();
+    try {
+        $fragments['#sub-menu-fragment .cart-header'] = almasara_cart_fragment_header();
+        $fragments['#sub-menu-fragment .cart-items']  = almasara_cart_fragment_items();
+        $fragments['#sub-menu-fragment .cart-footer'] = almasara_cart_fragment_footer();
+    } catch ( Throwable $e ) {
+        // fragment صرفاً نمایشی است — نباید بتواند افزودن به سبد را از کار بیندازد
+        error_log( sprintf( '[almasara] mini-cart fragment failed: %s @ %s:%d', $e->getMessage(), $e->getFile(), $e->getLine() ) );
+    }
 
     return $fragments;
 }

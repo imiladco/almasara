@@ -172,7 +172,7 @@ function custom_cart_shortcode() {
                     <button class="qty-increase <?php echo $is_max_stock ? 'disabled-max' : ''; ?> flex items-center justify-center p-16 rounded-md bg-general-01" style="width: 40px; height: 40px; box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .1);" tabindex="-1" aria-label="افزایش تعداد" <?php echo $is_max_stock ? 'disabled' : ''; ?>>+</button>
                 </div>
                 <div class="price flex items-center flex-row gap-4 font-semibold text-h6" style="color: rgb(35, 37, 78);">
-                    <span><?php echo esc_html( $product->get_price() * $quantity ); ?></span>
+                    <span><?php echo esc_html( (float) $product->get_price() * $quantity ); ?></span>
                     <p class="font-normal text-caption">تومان</p>
                 </div>
             </div>
@@ -229,7 +229,7 @@ function custom_cart_update_qty() {
     WC()->cart->set_quantity( $cart_item_key, $quantity );
 
     wp_send_json_success( [
-        'price' => floatval( $product->get_price() * $quantity ),
+        'price' => floatval( $product->get_price() ) * $quantity,
         'quantity' => $quantity,
         'is_remove' => false,
         'is_max_stock' => $quantity >= $stock_quantity || ! $product->is_in_stock(),
