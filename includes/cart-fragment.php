@@ -10,6 +10,66 @@
  */
 
 /**
+ * Mini-cart header block (count row) — reused by wrapper shortcode and AJAX fragments.
+ *
+ * @return string HTML
+ */
+function almasara_cart_fragment_header() {
+    $cart_count = WC()->cart->get_cart_contents_count();
+    ob_start();
+    ?>
+    <div class="cart-header flex flex-row justify-between items-center gap-8 px-6 py-4 text-body-2 font-medium" style="background-color: rgb(248, 250, 251);border-top-left-radius: 8px;border-top-right-radius: 8px; height: fit-content;">
+        <span class="flex flex-row gap-8 items-center" style="color: rgb(119, 119, 119);">
+            <img src="/wp-content/themes/almasara/assets/img/menu/profile/cart-count.svg" alt="cart-count">
+            سبد خرید شما <?php echo esc_html( $cart_count ); ?> عدد کالا
+            </span>
+        <a href="/cart/" class="font-normal flex flex-row items-center py-05 px-1 rounded-md" style="color: #0077db;">
+            سبد خرید
+            <img src="/wp-content/themes/almasara/assets/img/menu/profile/arrow-left.svg" alt="show-cart">
+        </a>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+/**
+ * Mini-cart items block — reused by wrapper shortcode and AJAX fragments.
+ *
+ * @return string HTML
+ */
+function almasara_cart_fragment_items() {
+    return '<div class="cart-items px-8 py-6" style="max-height: 400px; overflow: hidden; overflow-y: auto; scrollbar-width: thin; direction: ltr;">'
+        . do_shortcode( '[custom_cart]' )
+        . '</div>';
+}
+
+/**
+ * Mini-cart footer block (checkout link + total) — reused by wrapper shortcode and AJAX fragments.
+ *
+ * @return string HTML
+ */
+function almasara_cart_fragment_footer() {
+    $cart_total = WC()->cart->get_cart_subtotal();
+    ob_start();
+    ?>
+    <div class="cart-footer border-t-1 border-solid border-general-07 px-6 py-4">
+        <a href="/checkout/" class="cart-checkout flex flex-row gap-32 justify-between px-8 py-4 text-body-2 font-medium general-01 rounded-lg" style="background-color: rgb(34, 60, 120)">
+            <span class="checkout-button font-bold">ثبت سفارش</span>
+            <hr class="divider bg-general-01 m-unset rounded-3xl" style="min-height:100%;width:1px" aria-hidden="true">
+            <div class="cart-total flex flex-row gap-4 items-center hidden">
+                <p class="font-normal text-caption">جمع کل:</p>
+                <div class="total-price flex flex-row gap-4">
+                    <span class="cart-total-price"><?php echo esc_html( $cart_total ); ?></span>
+                    <p class="font-normal text-caption">تومان</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+/**
  * Register custom cart wrapper shortcode
  *
  * @return string HTML output of cart wrapper
@@ -20,36 +80,13 @@ function custom_cart_wrapper_shortcode() {
     }
 
     ob_start();
-    $cart_count = WC()->cart->get_cart_contents_count();
-    $cart_total = WC()->cart->get_cart_subtotal(); // Use get_cart_subtotal for numeric value
     ?>
     <div class="cart-wrapper invisible opacity-0 flex flex-col rounded-md bg-general-01 absolute" style="z-index:100000;box-shadow: 0 0 0px #0000, 0 0 0px #0000, 0px 6px 60px 0px rgba(0, 0, 0, .2);left:0;margin-top:20px;width:360px" id="sub-menu-fragment">
-        <div class="cart-header flex flex-row justify-between items-center gap-8 px-6 py-4 text-body-2 font-medium" style="background-color: rgb(248, 250, 251);border-top-left-radius: 8px;border-top-right-radius: 8px; height: fit-content;">
-            <span class="flex flex-row gap-8 items-center" style="color: rgb(119, 119, 119);">
-                <img src="/wp-content/themes/almasara/assets/img/menu/profile/cart-count.svg" alt="cart-count">
-                سبد خرید شما <?php echo esc_html( $cart_count ); ?> عدد کالا
-                </span>
-            <a href="/cart/" class="font-normal flex flex-row items-center py-05 px-1 rounded-md" style="color: #0077db;">
-                سبد خرید
-                <img src="/wp-content/themes/almasara/assets/img/menu/profile/arrow-left.svg" alt="show-cart">
-            </a>
-        </div>
-        <div class="cart-items px-8 py-6" style="max-height: 400px; overflow: hidden; overflow-y: auto; scrollbar-width: thin; direction: ltr;">
-            <?php echo do_shortcode( '[custom_cart]' ); ?>
-        </div>
-        <div class="cart-footer border-t-1 border-solid border-general-07 px-6 py-4">
-            <a href="/checkout/" class="cart-checkout flex flex-row gap-32 justify-between px-8 py-4 text-body-2 font-medium general-01 rounded-lg" style="background-color: rgb(34, 60, 120)">
-                <span class="checkout-button font-bold">ثبت سفارش</span>
-                <hr class="divider bg-general-01 m-unset rounded-3xl" style="min-height:100%;width:1px" aria-hidden="true">
-                <div class="cart-total flex flex-row gap-4 items-center hidden">
-                    <p class="font-normal text-caption">جمع کل:</p>
-                    <div class="total-price flex flex-row gap-4">
-                        <span class="cart-total-price"><?php echo esc_html( $cart_total ); ?></span>
-                        <p class="font-normal text-caption">تومان</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <?php
+        echo almasara_cart_fragment_header();
+        echo almasara_cart_fragment_items();
+        echo almasara_cart_fragment_footer();
+        ?>
     </div>
     <?php
     return ob_get_clean();
