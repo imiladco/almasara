@@ -98,12 +98,3 @@ function custom_footer_nav()
 }
 
 add_action('wp_footer', 'custom_footer_nav');
-add_filter('pre_option', 'pre_get_template_option', 20, 3);
-function pre_get_template_option($pre, $option, $default_value)
-{
-    if (! empty($_GET['wc-ajax']) && in_array($option, ["template", "stylesheet"])) {
-        return '';
-    }
-
-    return $pre;
-}
