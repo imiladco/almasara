@@ -20,12 +20,12 @@ function almasara_cart_fragment_header() {
     ?>
     <div class="cart-header flex flex-row justify-between items-center gap-8 px-6 py-4 text-body-2 font-medium" style="background-color: rgb(248, 250, 251);border-top-left-radius: 8px;border-top-right-radius: 8px; height: fit-content;">
         <span class="flex flex-row gap-8 items-center" style="color: rgb(119, 119, 119);">
-            <img src="/wp-content/themes/almasara/assets/img/menu/profile/cart-count.svg" alt="cart-count">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/cart-count.svg" alt="cart-count">
             سبد خرید شما <?php echo esc_html( $cart_count ); ?> عدد کالا
             </span>
         <a href="/cart/" class="font-normal flex flex-row items-center py-05 px-1 rounded-md" style="color: #0077db;">
             سبد خرید
-            <img src="/wp-content/themes/almasara/assets/img/menu/profile/arrow-left.svg" alt="show-cart">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/arrow-left.svg" alt="show-cart">
         </a>
     </div>
     <?php
@@ -133,7 +133,7 @@ function custom_cart_shortcode() {
                                 $attribute_value = $value;
                                 ?>
                                 <li class="flex flex-row gap-16 items-center" style="color: #4B5259;">
-                                    <img decoding="async" src="/wp-content/themes/almasara/assets/img/menu/fragment/attribute.svg" alt="آیکون متغیر">
+                                    <img decoding="async" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/fragment/attribute.svg" alt="آیکون متغیر">
                                     <?php echo esc_html( rawurldecode( $attribute_label . ': ' . $attribute_value ) ); ?>
                                 </li>
                             <?php } ?>
@@ -146,7 +146,7 @@ function custom_cart_shortcode() {
                     if ( $image_id ) {
                         echo wp_get_attachment_image( $image_id, 'thumbnail', false, [ 'class' => 'rounded-md', 'style' => 'width: 114px; height: 114px;' ] );
                     } else {
-                        echo '<img src="/wp-content/themes/almasara/assets/img/placeholder.png" class="rounded-md" style="width: 114px; height: 114px;" alt="بدون تصویر">';
+                        echo '<img src="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/img/placeholder.png" class="rounded-md" style="width: 114px; height: 114px;" alt="بدون تصویر">';
                     }
                     ?>
                     <?php if ( $is_on_sale ) { ?>
@@ -158,7 +158,7 @@ function custom_cart_shortcode() {
                 <div class="quantity-control flex flex-row items-center gap-18">
                     <?php if ( $quantity === 1 ) { ?>
                         <button class="qty-remove flex items-center justify-center p-16 rounded-md bg-general-01" tabindex="-1" aria-label="حذف محصول" style="width: 40px; height: 40px; box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .1);">
-                            <img src="/wp-content/themes/almasara/assets/img/menu/fragment/trash.svg" alt="trash">
+                            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/fragment/trash.svg" alt="trash">
                         </button>
                     <?php } else { ?>
                         <button class="qty-decrease flex items-center justify-center p-16 rounded-md bg-general-01" style="width: 40px; height: 40px; box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .1);" tabindex="-1" aria-label="کاهش تعداد">-</button>

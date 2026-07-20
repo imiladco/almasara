@@ -11,7 +11,7 @@
                     <a class="px-4 rounded-md height-full flex flex flex-row gap-12 items-center" href=""
                         style="color: #4B5259;" id="has-sub-menu-category">
                         دسته‌بندی محصولات
-                        <img src="/wp-content/themes/almasara/assets/img//menu/arrow-down.svg" alt="arrow-down-menu">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img//menu/arrow-down.svg" alt="arrow-down-menu">
                     </a>
                     <?php echo do_shortcode( '[sub_menu_almasara]' ); ?>  
                 </li>
@@ -25,7 +25,7 @@
     </div>
     <div class="flex flex-row gap-8 items-center"> 
         <a>
-            <img src="/wp-content/themes/almasara/assets/img/search.svg" alt="search" id="has-sub-menu-search" class="cursor-pointer">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/search.svg" alt="search" id="has-sub-menu-search" class="cursor-pointer">
             <div id="sub-menu-search" class="absolute w-full bg-general-01 invisible" style="top:0; left:0">
                 <form role="search" method="get" class="flex flex-row gap-16 w-full items-center" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <input type="search" id="custom-search-field" class="border-black-02 rounded-ml border-solid border border-1 py-3 px-4 w-full " placeholder="جستجو در محصولات…" value="" name="s" autocomplete="off" style="color: rgb(119, 119, 119);">
@@ -36,7 +36,7 @@
             </div>
         </a>
         <div>
-            <img src="/wp-content/themes/almasara/assets/img/fragment.svg" alt="fragment" id="has-sub-menu-fragment" class="cursor-pointer">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/fragment.svg" alt="fragment" id="has-sub-menu-fragment" class="cursor-pointer">
             <?php echo do_shortcode( '[custom_cart_wrapper]' ); ?>    
         </div>
         <span class="a-divider" style="background:#0000001f;width:1px;height:24px;"></span>
@@ -44,7 +44,7 @@
             <ul>
                 <li>
                     <a href="">
-                        <img src="/wp-content/themes/almasara/assets/img/profile.svg" alt="profile" id="has-sub-menu-profile" class="cursor-pointer">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/profile.svg" alt="profile" id="has-sub-menu-profile" class="cursor-pointer">
                     </a>
                     <ul class="flex flex-col py-2 absolute rounded-md bg-general-01 invisible opacity-0"
                         style="width: 250px;padding-inline: 0 !important;left: 0; margin-top: 20px !important; box-shadow: 0 0px #0000, 0 0 0px #0000, 0 3px 10px 0 rgba(0, 0, 0, .12), 0 10px 10px -6px rgba(0, 0, 0, .12); z-index: 9999;" id="sub-menu-profile">
@@ -55,21 +55,21 @@
                             </span>
                             <div class="flex flex-row items-center justify-between">
                                 <span class="flex flex-row gap-8 items-center text-body-2">
-                                    <img src="/wp-content/themes/almasara/assets/img/menu/profile/cart-count.svg"
+                                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/cart-count.svg"
                                         alt="cart-count">
                                     <span class="amfc-count">0</span> کالا
                                 </span>
                                 <a href="/cart/" class="font-normal flex flex-row items-center py-05 px-1 rounded-md"
                                     style="color: #0077db;">
                                     سبدخرید
-                                    <img src="/wp-content/themes/almasara/assets/img/menu/profile/arrow-left.svg"
+                                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/arrow-left.svg"
                                         alt="show-cart">
                                 </a>
                             </div>
                         </li>
                         <li>
                             <a class="px-4 flex flex-row gap-8 items-center" href="/profile/" style="height: 48px;">
-                                <img src="/wp-content/themes/almasara/assets/img/menu/profile/panel.svg" alt="">
+                                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/panel.svg" alt="">
                                 پنل کاربری
                             </a>
                         </li>
@@ -77,7 +77,7 @@
                             style="min-width: 100%;height:1px;background: #0000001f;">
                         <li>
                             <a class="px-4 flex flex-row gap-8 items-center" href="/profile/edit-account/" style="height: 48px;">
-                                <img src="/wp-content/themes/almasara/assets/img/menu/profile/profile.svg" alt="">
+                                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/profile.svg" alt="">
                                 اطلاعات حساب‌کاربری
                             </a>
                         </li>
@@ -85,7 +85,7 @@
                             style="min-width: 100%;height:1px;background: #0000001f;">
                         <li>
                             <a class="px-4 flex flex-row gap-8 items-center" href="/profile/orders/" style="height: 48px;">
-                                <img src="/wp-content/themes/almasara/assets/img/menu/profile/oreders.svg" alt="">
+                                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/oreders.svg" alt="">
                                 سفارش‌ها
                             </a>
                         </li>
@@ -93,7 +93,7 @@
                             style="min-width: 100%;height:1px;background: #0000001f;">
                         <li>
                             <a class="px-4 flex flex-row gap-8 items-center" href="/profile/customer-logout/?_wpnonce=1d6bde37d9/" style="height: 48px;">
-                                <img src="/wp-content/themes/almasara/assets/img/menu/profile/logout.svg" alt="">
+                                <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/menu/profile/logout.svg" alt="">
                                 خروج از حساب‌کاربری
                             </a>
                         </li>

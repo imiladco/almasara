@@ -4,7 +4,7 @@
             <img src="<? echo wp_get_attachment_image_url(get_theme_mod('custom_logo')) ?>" alt="almasara" class="w-full" style="height:48px">
         </a>
         <a>
-            <img src="/wp-content/themes/almasara/assets/img/search.svg" alt="search" id="has-sub-menu-search" class="cursor-pointer">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/img/search.svg" alt="search" id="has-sub-menu-search" class="cursor-pointer">
             <div id="sub-menu-search" class="absolute w-full bg-general-01 invisible" style="top:0; left:0">
                 <form role="search" method="get" class="flex flex-row gap-16 w-full items-center" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <input type="search" id="custom-search-field" class="border-black-02 rounded-ml border-solid border border-1 py-3 px-4 w-full " placeholder="جستجو در محصولات…" value="" name="s" autocomplete="off" style="color: rgb(119, 119, 119);">
